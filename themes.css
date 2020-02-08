@@ -1,0 +1,275 @@
+/*
+ * SmartInputContainer
+ */
+
+.SmartInputContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+/*
+ * SmartInput
+ */
+
+.SmartInput,
+.SmartInput.theme-undefined,
+.SmartInput ~ label,
+.SmartInput + ul,
+.SmartInput.theme-undefined ~ label,
+.SmartInput.theme-undefined + ul {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  color: #333;
+  outline: none;
+  padding: 5px;
+  font-size: .8em;
+  font-family: sans-serif;
+  width: auto;
+}
+
+.SmartInput ~ label,
+.SmartInput + ul,
+.SmartInput.theme-undefined ~ label,
+.SmartInput.theme-undefined + ul {
+  border: none;
+  border-radius: 0;
+}
+
+.SmartInput + ul,
+.SmartInput.theme-undefined + ul {
+  display: none;
+  position: absolute;
+  background: white;
+  list-style: none;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  width: 100%;
+  z-index: 1000;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.SmartInput.focus + ul,
+.SmartInput.theme-undefined:focus + ul {
+  display: block;
+  pointer-events: all;
+}
+
+.SmartInput + ul > li,
+.SmartInput.theme-undefined + ul > li {
+  cursor: pointer;
+  padding: 5px 2px;
+}
+
+.SmartInput + ul > li.hover,
+.SmartInput.theme-undefined + ul > li.hover {
+  background: #ccc;
+}
+
+/*
+ * "Bold" Theme
+ */
+
+.SmartInput.theme-Bold {
+  background: white;
+  border: 2px solid black;
+  color: black;
+  font-style: italic;
+  font-weight: 800;
+  padding: 10px;
+}
+
+.SmartInput.theme-Bold + ul {
+  background: black;
+  box-shadow: none;
+}
+
+.SmartInput.theme-Bold + ul > li {
+  background: black;
+  color: white;
+  padding: 10px;
+  font: 800 italic 1em/1em sans-serif;
+}
+
+.SmartInput.theme-Bold + ul > li.hover {
+  background: white;
+  color: black;
+}
+
+/*
+ * "Bootstrap" Theme
+ */
+
+.SmartInput.theme-Bootstrap {
+  background: white;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  color: #212529;
+  font-weight: 400;
+  font-size: .9em;
+  padding: 10px;
+}
+
+.SmartInput.theme-Bootstrap + ul {
+  border: 1px solid #ced4da;
+  height: 140px;
+  margin-top: 140px;
+  padding: 0;
+}
+
+.SmartInput.theme-Bootstrap + ul > li {
+  padding: 16px;
+}
+
+.SmartInput.theme-Bootstrap + ul > li.hover {
+  background: #cbbde2;
+  color: #563d7c;
+}
+
+/*
+ * "Material" Theme
+ */
+
+.SmartInput.theme-Material {
+  background: white;
+  border-width: 1px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  font-weight: 400;
+  font-size: 1em;
+  padding: 6px 6px 0;
+  line-height: 2em;
+}
+
+.SmartInput.theme-Material ~ label {
+  position: absolute;
+  left: 1px;
+  top: -.5em;
+  opacity: 0;
+  line-height: 0;
+}
+
+.SmartInput.theme-Material:focus {
+  border-width: 2px;
+  border-color: #3f50b5;
+}
+
+.SmartInput.theme-Material::placeholder,
+.SmartInput.theme-Material:focus ~ label {
+  width: auto;
+  color: #888;
+  font-size: 1em;
+  transition: all .15s linear;
+}
+
+.SmartInput.theme-Material:focus::placeholder,
+.SmartInput.theme-Material:focus ~ label {
+  color: #3f50b5;
+  font-size: .75em;
+  transform: translateY(-1.5em);
+}
+
+.SmartInput.theme-Material:focus ~ label {
+  transform: translateY(0);
+  transition: opacity .15s .15s linear;
+  opacity: 1;
+  line-height: 1em;
+}
+
+.SmartInput.theme-Material + ul {
+  height: 200px;
+  margin-top: 200px;
+  padding: 0;
+}
+
+.SmartInput.theme-Material + ul > li {
+  padding: 20px 30px;
+  font-size: 1.1em;
+}
+
+.SmartInput.theme-Material + ul > li.hover {
+  background: #f5f5f5;
+}
+
+/*
+ * "Polaris" Theme
+ */
+
+.SmartInput.theme-Polaris {
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #c4cdd5;
+  box-shadow: inset 0 1px 4px rgba(92, 106, 196, 0.25);
+  color: #111;
+  font-weight: 400;
+  font-size: .8em;
+  padding: 9px;
+}
+
+.SmartInput.theme-Polaris:focus {
+  border: 2px solid #5c6ac4;
+  padding: 8px;
+}
+
+.SmartInput.theme-Polaris + ul {
+  border-radius: 4px;
+  border: 1px solid #c4cdd5;
+  box-shadow: none;
+  height: 158px;
+  margin-top: 162px;
+  padding: 0;
+}
+
+.SmartInput.theme-Polaris + ul > li {
+  padding: 12px 18px;
+}
+
+.SmartInput.theme-Polaris + ul > li.hover {
+  background: #f4f5fa;
+}
+
+/*
+ * "Stripe" Theme
+ */
+
+.SmartInput.theme-Stripe {
+  background: #f6f9fc;
+  border-radius: 4px;
+  border: none;
+  color: #32325d;
+  font-weight: 300;
+  font-size: .95em;
+  padding: 10px;
+}
+
+.SmartInput.theme-Stripe:focus {
+  background: white;
+  border: 1px solid #e4effa;
+  padding: 9px;
+}
+
+
+.SmartInput.theme-Stripe + ul {
+  border-radius: 4px;
+  border: 1px solid #e1e3e6;
+  box-shadow: none;
+  height: 158px;
+  margin-top: 162px;
+  padding: 0;
+}
+
+.SmartInput.theme-Stripe + ul > li {
+  padding: 12px 18px;
+  color: #5469d4;
+  font-weight: 500;
+}
+
+.SmartInput.theme-Stripe + ul > li.hover {
+  background: transparent;
+  color: #1a1f36;
+}
