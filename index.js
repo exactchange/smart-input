@@ -237,7 +237,7 @@ function (_Component) {
         ref: "input",
         value: value
       }) : _react.default.createElement("input", {
-        autoComplete: "new-password",
+        autoComplete: "off",
         className: "SmartInput ".concat(themeName),
         id: id,
         onBlur: onBlur,
