@@ -1,3 +1,5 @@
+"use strict";
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -169,6 +171,7 @@ function (_Component) {
         debug = props.debug,
         disableCache = props.disableCache,
         keywords = props.keywords,
+        multiline = props.multiline,
         profile = props.profile,
         reportPath = props.reportPath,
         _theme = props.theme;
@@ -178,8 +181,9 @@ function (_Component) {
     _this.delegate = new Profiles[profile]();
     _this.state = _this.delegate.getInitialState.call(_assertThisInitialized(_this), {
       autoCompleteHeight: autoCompleteHeight || '100px',
-      keywords: keywords || [],
       isFocused: false,
+      keywords: keywords || [],
+      multiline: !!multiline,
       reportPath: reportPath,
       suggestions: _suggestions.map(function (s) {
         return s.toLowerCase();
@@ -210,6 +214,7 @@ function (_Component) {
           _this$state2 = this.state,
           autoCompleteHeight = _this$state2.autoCompleteHeight,
           isFocused = _this$state2.isFocused,
+          multiline = _this$state2.multiline,
           suggestionIndex = _this$state2.suggestionIndex,
           suggestions = _this$state2.suggestions,
           theme = _this$state2.theme,
@@ -221,7 +226,17 @@ function (_Component) {
       };
       return _react.default.createElement("div", {
         className: "SmartInputContainer"
-      }, _react.default.createElement("input", {
+      }, multiline ? _react.default.createElement("textarea", {
+        className: "SmartInput ".concat(themeName),
+        id: id,
+        onBlur: onBlur,
+        onChange: onChange,
+        onFocus: onFocus,
+        onKeyDown: onKeyDown,
+        placeholder: placeholder,
+        ref: "input",
+        value: value
+      }) : _react.default.createElement("input", {
         autoComplete: "new-password",
         className: "SmartInput ".concat(themeName),
         id: id,
@@ -233,7 +248,7 @@ function (_Component) {
         ref: "input",
         type: "text",
         value: value
-      }), suggestions.length > 0 && _react.default.createElement("ul", {
+      }), !multiline && suggestions.length > 0 && _react.default.createElement("ul", {
         style: ulStyle
       }, suggestions.map(function (s, i) {
         return s && _react.default.createElement("li", {
